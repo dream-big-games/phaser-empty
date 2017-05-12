@@ -1,3 +1,8 @@
+/*
+IF you are FORKING for a full game, you should probalbly do the following:
+1. change ALL references of "Empty" to name of your project.
+*/
+
 var Empty = {};
 
 Empty.Preloader = function () {};
@@ -5,17 +10,14 @@ Empty.Preloader = function () {};
 Empty.Preloader.prototype = {
 
     init: function () {
-
         this.input.maxPointers = 1;
-
         this.scale.pageAlignHorizontally = true;
-
     },
 
     preload: function () {
-
+// local path to where graphics are stored
         this.load.path = 'assets/';
-
+// fonts, etc.
         this.load.bitmapFont('fat-and-tiny');
         this.load.bitmapFont('interfont');
 
@@ -25,9 +27,7 @@ Empty.Preloader.prototype = {
     },
 
     create: function () {
-
         this.state.start('Empty.MainMenu');
-
     }
 
 };
@@ -37,7 +37,7 @@ Empty.MainMenu = function () {};
 Empty.MainMenu.prototype = {
 
     create: function () {
-
+// background image - preloaded
         this.add.image(0, 0, 'sea');
 
         var logo = this.add.image(this.world.centerX, 200, 'logo');
