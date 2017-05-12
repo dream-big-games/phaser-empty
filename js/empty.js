@@ -1,8 +1,8 @@
-var Aquaplane = {};
+var Empty = {};
 
-Aquaplane.Preloader = function () {};
+Empty.Preloader = function () {};
 
-Aquaplane.Preloader.prototype = {
+Empty.Preloader.prototype = {
 
     init: function () {
 
@@ -19,25 +19,22 @@ Aquaplane.Preloader.prototype = {
         this.load.bitmapFont('fat-and-tiny');
         this.load.bitmapFont('interfont');
 
-        this.load.images([ 'logo', 'boat', 'skier', 'pole', 'rock', 'shark', 'sea' ]);
+// load your image(s) and spritesheets here
+        this.load.images([ 'logo', 'sea' ]);
         this.load.spritesheet('waves', 'waves.png', 16, 6);
-//        var sea = this.load.image('sea', 'sea.png');
-//        sea.height = game.height
-//        sea.width = game.width
-
     },
 
     create: function () {
 
-        this.state.start('Aquaplane.MainMenu');
+        this.state.start('Empty.MainMenu');
 
     }
 
 };
 
-Aquaplane.MainMenu = function () {};
+Empty.MainMenu = function () {};
 
-Aquaplane.MainMenu.prototype = {
+Empty.MainMenu.prototype = {
 
     create: function () {
 
@@ -57,13 +54,13 @@ Aquaplane.MainMenu.prototype = {
 
     start: function () {
 
-        this.state.start('Aquaplane.Game');
+        this.state.start('Empty.Game');
 
     }
 
 };
 
-Aquaplane.Game = function (game) {
+Empty.Game = function (game) {
 
     this.score = 0;
     this.scoreText = null;
@@ -91,7 +88,7 @@ Aquaplane.Game = function (game) {
 
 };
 
-Aquaplane.Game.prototype = {
+Empty.Game.prototype = {
 
     init: function () {
 
@@ -447,7 +444,7 @@ Aquaplane.Game.prototype = {
 
     gameOver: function () {
 
-        this.state.start('Aquaplane.MainMenu');
+        this.state.start('Empty.MainMenu');
 
     },
 
@@ -493,8 +490,8 @@ Aquaplane.Game.prototype = {
 
 // var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game');
 
-game.state.add('Aquaplane.Preloader', Aquaplane.Preloader);
-game.state.add('Aquaplane.MainMenu', Aquaplane.MainMenu);
-game.state.add('Aquaplane.Game', Aquaplane.Game);
+game.state.add('Empty.Preloader', Empty.Preloader);
+game.state.add('Empty.MainMenu', Empty.MainMenu);
+game.state.add('Empty.Game', Empty.Game);
 
-game.state.start('Aquaplane.Preloader');
+game.state.start('Empty.Preloader');
